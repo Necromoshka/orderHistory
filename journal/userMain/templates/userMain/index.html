@@ -8,6 +8,28 @@
 
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% block navbar %}
+    <div class="navbar navbar-inverse .navbar-collapse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">ННЦСМ</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Домой</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
@@ -16,11 +38,11 @@
   {% csrf_token %}
   {# bootstrap_form form #}
   {% buttons %}
-    <button type="submit" class="btn btn-primary">
-      {% bootstrap_icon "star" %} Submit
+    <button type="submit" class="btn btn-success glyphicon glyphicon-ok-sign">
+      {% bootstrap_icon "ok" %} Submit
     </button>
   {% endbuttons %}
-</form>
+
 
 {# Read the documentation for more information #}
 {% if rows %}
