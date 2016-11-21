@@ -65,6 +65,30 @@
     {% endfor %}
         </tbody>
     </table>
+{% if pg.paginator.num_pages > 1 %}
+<div id="pagination">
+    {% if pg.has_previous %}
+        <div id="prvious-page"><a href="{% url "index" %}?page={{ pg.previous_page_number }}">&lt;</a></div>
+    {% endif %}
+    {% if pg.has_next %}
+        <div id="next-page"><a href="{% url "index" %}?page={{ pg.next_page_number }}">&gt;</a></div>
+    {% endif %}
+    <div id="num-pages">
+        {% for pn in pg.paginator.page_range %}
+        {% if not forloop.first %}
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+        {% endif %}
+        {%if pg.number != pn %}
+        <a href="{% url "index" %}&page={{ pn }}">
+        {% endif %}
+            {{ pn }}
+        {% if pg.number != pn %}
+        </a>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}
 {% else %}
     <p>Пусто тут!!! Hello from userMain apps index template.</p>
 {% endif %}
