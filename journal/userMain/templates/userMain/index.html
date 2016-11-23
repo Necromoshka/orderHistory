@@ -1,6 +1,5 @@
 {% load staticfiles %}
 <linc type="text/css" href="{% static "base.css" %}" rel="stylesheet">
-
 {# Load the tag library #}
 {% load bootstrap3 %}
 
@@ -45,7 +44,7 @@
 
 
 {# Read the documentation for more information #}
-{% if rows %}
+{% if pg %}
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
@@ -55,7 +54,7 @@
             </tr>
         </thead>
         <tbody>
-    {% for r in rows %}
+    {% for r in pg %}
             <tr>
                 <td>{{r.id}}</td>
                 <td>{{r.fild_one}}</td>
@@ -79,7 +78,7 @@
             &nbsp;&nbsp;|&nbsp;&nbsp;
         {% endif %}
         {%if pg.number != pn %}
-        <a href="{% url "index" %}&page={{ pn }}">
+        <a href="{% url "index" %}?page={{ pn }}">
         {% endif %}
             {{ pn }}
         {% if pg.number != pn %}
@@ -92,3 +91,4 @@
 {% else %}
     <p>Пусто тут!!! Hello from userMain apps index template.</p>
 {% endif %}
+{{ p }}
