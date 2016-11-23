@@ -65,12 +65,13 @@
         </tbody>
     </table>
 {% if pg.paginator.num_pages > 1 %}
-<div id="pagination">
+<nav aria-label="Page navigation">
+<div id="pagination" class="pag">
     {% if pg.has_previous %}
-        <div id="prvious-page"><a href="{% url "index" %}?page={{ pg.previous_page_number }}">&lt;</a></div>
+        <div id="prvious-page"><a href="{% url "userMain:index" %}?page={{ pg.previous_page_number }}" aria-label="Previous">&lt;</a></div>
     {% endif %}
     {% if pg.has_next %}
-        <div id="next-page"><a href="{% url "index" %}?page={{ pg.next_page_number }}">&gt;</a></div>
+        <div id="next-page"><a href="{% url "userMain:index" %}?page={{ pg.next_page_number }}" aria-label="Next">&gt;</a></div>
     {% endif %}
     <div id="num-pages">
         {% for pn in pg.paginator.page_range %}
@@ -78,7 +79,7 @@
             &nbsp;&nbsp;|&nbsp;&nbsp;
         {% endif %}
         {%if pg.number != pn %}
-        <a href="{% url "index" %}?page={{ pn }}">
+        <a href="{% url "userMain:index" %}?page={{ pn }}">
         {% endif %}
             {{ pn }}
         {% if pg.number != pn %}
@@ -87,6 +88,7 @@
         {% endfor %}
         </div>
     </div>
+</nav>
 {% endif %}
 {% else %}
     <p>Пусто тут!!! Hello from userMain apps index template.</p>
