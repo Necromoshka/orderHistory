@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from userMain.forms import userMainCreate
 
 urlpatterns = [
     url(r'^\Z', include('userMain.urls')),
+    url(r'add/$', userMainCreate.as_view(), name='user_create'),
     #url(r'^demo/', include('demo.urls')),
     url(r'^admin/', admin.site.urls),
 ]
