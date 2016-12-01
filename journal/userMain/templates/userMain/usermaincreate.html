@@ -35,7 +35,10 @@
 {# Display a form #}
 <form action="" method="post">
   {% csrf_token %}
-    {{ form.as_p }}
+
+    <table>
+    {{ formset }}
+    </table>
   {# bootstrap_form form #}
   {% buttons %}
     <button type="submit" class="btn btn-success glyphicon glyphicon-ok-sign">
