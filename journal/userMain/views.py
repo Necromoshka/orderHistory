@@ -10,7 +10,6 @@ from django.forms import formset_factory
 class Create_user_main(generic.CreateView):
     model = userMainTeble
     template_name = 'userMain/index.html'
-   # template_name = 'userMain/index.html'
     fields = '__all__'
 
 User_formset = formset_factory(Create_user_main, can_order=True, can_delete=True, extra=2)
