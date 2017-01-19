@@ -1,63 +1,12 @@
-{% load staticfiles %}
-<linc type="text/css" href="{% static "base.css" %}" rel="stylesheet">
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% block navbar %}
-    <div class="navbar navbar-inverse .navbar-collapse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle"
-                        data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">ННЦСМ</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Домой</a></li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-{% endblock %}
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-
-{# Display a form #}
-<form action="" method="post">
-  {% csrf_token %}
-   {{ formset.management_form }}
-    <table>
-        {% for form in formset %}
-        {{ form }}
-        {% endfor %}
-    </table>
-  {# bootstrap_form form #}
-  {% buttons %}
-    <button type="submit" class="btn btn-success glyphicon glyphicon-ok-sign">
-      {% bootstrap_icon "ok" %} Submit
-    </button>
-  {% endbuttons %}
-
-</form>
-
-
-
+{% extends "userMain/base.html" %}
+{% block main %}
 {# Read the documentation for more information #}
 {% if pg %}
-    <table class="table table-striped table-bordered table-hover">
+<div id="main">
+    <table>
         <thead>
             <tr>
-                <th id="mtable">id</th>
+                <th >id</th>
                 <th>TEXT</th>
                 <th>ДАТА</th>
             </tr>
@@ -73,9 +22,10 @@
     {% endfor %}
         </tbody>
     </table>
+</div>
 {% if pg.paginator.num_pages > 1 %}
-<nav aria-label="Page navigation">
-<div id="pagination" class="pag">
+<nav >
+<div id="pag">
     {% if pg.has_previous %}
         <div id="prvious-page"><a href="{% url "userMain:index" %}?page={{ pg.previous_page_number }}" aria-label="Previous">&lt;</a></div>
     {% endif %}
@@ -98,7 +48,9 @@
         </div>
     </div>
 </nav>
+
 {% endif %}
 {% else %}
     <p>Пусто тут!!! Hello from userMain apps index template.</p>
 {% endif %}
+{% endblock %}

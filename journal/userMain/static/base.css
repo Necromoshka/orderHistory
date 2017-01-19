@@ -1,8 +1,27 @@
-.table>thead>tr>th {
-    vertical-align: center;
-    border-bottom: 2px solid #ddd;
+@charset "utf-8";
+
+body {
+    margin: 0px;
+    padding: 0px;
+
 }
 
-.pag {
+#main
+{
     text-align: center;
+
+
+}
+
+a:link {
+    color:green;
+
+}
+
+a:hover {
+    color:red;
+}
+
+a:visited {
+    color:Tomato;
 }

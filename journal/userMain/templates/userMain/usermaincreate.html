@@ -1,50 +1,18 @@
-{% load staticfiles %}
-<linc type="text/css" href="{% static "base.css" %}" rel="stylesheet">
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% block navbar %}
-    <div class="navbar navbar-inverse .navbar-collapse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle"
-                        data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">ННЦСМ</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Домой</a></li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-{% endblock %}
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-
-{# Display a form #}
+{% extends "userMain/base.html" %}
+{% block main %}
 <form action="" method="post">
   {% csrf_token %}
 
-    <table>
-    {{ formset }}
-    </table>
+
   {# bootstrap_form form #}
-  {% buttons %}
-    <button type="submit" class="btn btn-success glyphicon glyphicon-ok-sign">
-      {% bootstrap_icon "ok" %} Submit
+  <table>
+        {{ formset }}
+    </table>
+    <button type="submit" >
+      Submit
     </button>
-  {% endbuttons %}
+
 
 </form>
 
+{% endblock %}
