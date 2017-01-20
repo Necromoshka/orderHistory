@@ -10,7 +10,11 @@ from .forms import ArticleFormSet
 from django.http import HttpResponseRedirect
 import datetime
 
+
 formset = ArticleFormSet(initial=[{'title': 'Django is now open source', 'pub_date': datetime.date.today(),}])
+
+
+
 class Create_user_main(generic.CreateView):
     model = userMainTeble
     template_name = 'userMain/usermaincreate.html'
@@ -20,10 +24,13 @@ class Create_user_main(generic.CreateView):
 
 def create(request):
     tytle = "Create"
-
-
     context = {'formset': formset,"tytle":tytle}
     return render(request, 'userMain/usermaincreate.html', context)
+
+
+
+
+
 
 def index(request):
     tytle = "Main"

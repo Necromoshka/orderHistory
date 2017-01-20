@@ -9,4 +9,4 @@ class ArticleForm(forms.Form):
 
 
 
-ArticleFormSet = formset_factory(ArticleForm, extra=2, max_num=1)
+ArticleFormSet = formset_factory(ArticleForm)
